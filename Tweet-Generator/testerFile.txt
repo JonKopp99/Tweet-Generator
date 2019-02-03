@@ -1,0 +1,41 @@
+
+#A histogram() function which takes a source_text argument (can be either a filename or the contents
+#of the file as a string, your choice) and return a histogram data structure that stores each unique
+#word along with the number of times the word appears in the source text.
+def histogram(theWords):
+    print(theWords)
+    histoDict = {}
+    currentIndex = 0 #Keeps track of location in array
+    for word in theWords:
+        wordIndex = currentIndex #tracks location of what word we are comparing
+        wordIndex = 0
+        ctr = 0
+        while(wordIndex < len(theWords)):
+
+            if(theWords[wordIndex] == word):
+                print("DUPE")
+                ctr += 1
+
+            #print(theWords[wordIndex])
+            wordIndex += 1
+
+        currentIndex += 1
+        histoDict.update( {word : ctr})
+        #histoDict.update( {word :"Shit"} )
+    print(histoDict)
+    pass
+
+#A unique_words() function that takes a histogram argument and returns the total count of unique words
+#in the histogram. For example, when given the histogram for The Adventures of Sherlock Holmes, it returns the integer 8475.
+def unique_words():
+    pass
+
+#A frequency() function that takes a word and histogram argument and returns the number of times that word appears in a text.
+#For example, when given the word "mystery" and the Holmes histogram, it will return the integer 20.
+def frequency():
+    pass
+
+
+if __name__ == '__main__':
+    tempStringArr = ["one", "fish", "two", "fish","red", "fish","blue","fish"]
+    histogram(tempStringArr)
