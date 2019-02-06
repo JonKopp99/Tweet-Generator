@@ -36,6 +36,8 @@ def listtogram(theWords):
         completeWordList.append(wordArrElement)
     return completeWordList
 
+
+
 def tuplegram(theWords):
     completeWordList = list()
     currentIndex = 0 #Keeps track of location in array
@@ -91,8 +93,8 @@ if __name__ == '__main__':
     #print(countOfUniqueWords)
 
     #frequency test
-    freq = frequency("fish", tempStringArr)
-    print(freq)
+    #freq = frequency("fish", tempStringArr)
+    #print(freq)
 
     #matrix list test
     #listValues = listtogram(tempStringArr)
