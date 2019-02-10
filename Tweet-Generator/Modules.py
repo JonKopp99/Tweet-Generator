@@ -1,4 +1,4 @@
-
+import re
 #A histogram() function which takes a source_text argument (can be either a filename or the contents
 #of the file as a string, your choice) and return a histogram data structure that stores each unique
 #word along with the number of times the word appears in the source text.
@@ -80,10 +80,21 @@ def frequency(word, theWords):
 
     return ctr
 
+def stripFile():
+    file_object = open("text.txt", "r", encoding="utf-8-sig")
+    #.2 Assigned file read to a variable
+    no_punctuation_file = file_object.read()
+    #.3 Use regular expresion to remove puntuation
+    no_punctuation_file = re.sub(r'[^\w\s]','',no_punctuation_file)
+    #.4 Storage an array of words without puntuations
+    new_array = no_punctuation_file.split()
+    return new_array
 
 if __name__ == '__main__':
-    tempStringArr = ["one", "fish", "two", "fish","red", "fish","blue","fish"]
+    #tempStringArr = ["one", "fish", "two", "fish","red", "fish","blue","fish"]
 
+    tempStringArr = stripFile()
+    #print(tempStringArr)
     #dictionary test
     #dictionaryValue = dict_togram(tempStringArr)
     #print(dictionaryValue)
