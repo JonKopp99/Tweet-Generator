@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def index():
     tempStringArr = stripFile()
     tupleValues = tuplegram(tempStringArr)
     values = createSentence(tupleValues, random.randint(10,31))
