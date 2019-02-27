@@ -42,12 +42,13 @@ class LinkedList(object):
         return items
 
     def is_empty(self):
-        """Return a boolean indicating whether this linked list is empty."""
+        """Return a boolean indicating whether this linked list is empty.0(1)Because it is only checking one thing"""
         return self.head is None
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Worst and best Running time: O(n) for n items in the list (length)
+        because we always need to loop through all n nodes to get each item."""
         # TODO: Loop through all nodes and count one for each
         curr = self.head #current node
         ctr = 0
@@ -59,43 +60,39 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(1) Runs in constant time no loops or anything."""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
-        new_node = Node(item)
+        newNode = Node(item)
         curr = self.head
         if not curr:
-            new_node.next = self.head
-            self.head = new_node
-            self.tail = new_node
+            newNode.next = self.head
+            self.head = newNode
+            self.tail = newNode
         else:
             while curr.next:
                 curr = curr.next
-
-
-            curr.next = new_node
-            self.tail = new_node
-
+            curr.next = newNode
+            self.tail = newNode
 
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Best and Worse Running time: O(1) because we only change the first node and dont go through all of them"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
-        new_node = Node(item)
+        newNode = Node(item)
         if self.head:
-            new_node.next = self.head
+            newNode.next = self.head
             self.head = new_node
         else:
-            self.append(new_node.data)
-
+            self.append(newNode.data)
 
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        TODO: Best case running time: O(1) If the first node == quality it will return.
+        TODO: Worst case running time: O(n) If the last node == quality"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
         current = self.head
@@ -109,12 +106,11 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        TODO: Best case running time: O(1) If the first node is the item to delete
+        TODO: Worst case running time: O(n) If we have to loop through entire ll to find the node"""
         # TODO: Loop through all nodes to find one whose data matches given item
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
-
         curr = self.head
         previous = None
         found = False
@@ -128,7 +124,6 @@ class LinkedList(object):
                 else:
                     self.head = curr.next
                     found = True
-
             elif curr.data == item:
                 if curr == self.tail:
                     previous.next = None
@@ -137,8 +132,6 @@ class LinkedList(object):
                 else:
                     previous.next = curr.next
                     found = True
-
-
             else:
                 previous = curr
                 curr = curr.next
