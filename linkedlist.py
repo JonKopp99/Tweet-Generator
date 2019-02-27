@@ -84,7 +84,7 @@ class LinkedList(object):
         newNode = Node(item)
         if self.head:
             newNode.next = self.head
-            self.head = new_node
+            self.head = newNode
         else:
             self.append(newNode.data)
 

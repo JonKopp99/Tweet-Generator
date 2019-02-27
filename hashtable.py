@@ -27,9 +27,9 @@ class HashTable(object):
         TODO: Running time: O(n^2) We have to loop through entire bucket and its contents to get the keys."""
         # Collect all keys in each bucket
         allKeys = []
-        for bucket in self.buckets:
-            for key, value in bucket.items():
-                allKeys.append(key)
+        for bucket in self.buckets: #loop through buckets
+            for key, value in bucket.items(): #loop through items in the bucket
+                allKeys.append(key) #append the buckets keys
         return allKeys
 
     def values(self):
@@ -38,9 +38,9 @@ class HashTable(object):
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
         values = []
-        for bucket in self.buckets:
-            for key, value in bucket.items():
-                values.append(value)
+        for bucket in self.buckets: #Loop thorugh all the buckets
+            for key, value in bucket.items(): #Loop through items in buucket
+                values.append(value) #apend  the value to the values
         return values
 
     def items(self):
@@ -48,8 +48,8 @@ class HashTable(object):
         TODO: Running time: O(n) Loop though all the buckets once to get their items."""
         # Collect all pairs of key-value entries in each bucket
         allItems = []
-        for bucket in self.buckets:
-            allItems.extend(bucket.items())
+        for bucket in self.buckets: #Loop through all the buckets
+            allItems += (bucket.items()) #append the items from that bucket
         return allItems
 
     def length(self):
@@ -69,8 +69,10 @@ class HashTable(object):
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         i = self._bucket_index(key) #index
-        bucket = self.buckets[i]
-        return bucket.find(lambda item: item[0] == key) != None
+        bucket = self.buckets[i] #find bucket where its containted
+        if(bucket.find(lambda item: item[0] == key)): #if item = key return true
+            return True
+        return False
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
@@ -84,7 +86,7 @@ class HashTable(object):
         bucket = self.buckets[self._bucket_index(key)]
         entry = bucket.find(lambda key_value: key_value[0] == key)
         if entry is not None:
-            return entry[1] #get the value only at index 1
+            return entry[1]
         else:
             raise KeyError('Key not found: {}'.format(key))
 
@@ -114,9 +116,9 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
         i = self._bucket_index(key)#Index
-        found = self.buckets[i].find(lambda item: item[0] == key)
+        found = self.buckets[i].find(lambda item: item[0] == key) #item to look for
         if found:
-            self.buckets[i].delete(found)
+            self.buckets[i].delete(found) #Delete found 
         else:
             raise KeyError('Key not found: {}'.format(key))
 
