@@ -64,8 +64,8 @@ class HashTable(object):
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        TODO: Running time: O(1)if we can assume that pythons find method is constant if its
-        not constant time then most likely we can assume its O(N)at the greatest."""
+        TODO: Running time: O(1)if we can assume that the find method runs in its best case
+        and doesnt have to loop through the whole list. O(N)at the greatest."""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         i = self._bucket_index(key) #index
@@ -76,8 +76,8 @@ class HashTable(object):
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
-        TODO: Running time: O(1)if we can assume that pythons find method is constant if its
-        not constant time then most likely we can assume its O(N)at the greatest."""
+        TODO: Running time: O(1)if we can assume that the find method runs in its best case
+        and doesnt have to loop through the whole list. O(N)at the greatest."""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, return value associated with given key
@@ -93,8 +93,8 @@ class HashTable(object):
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
-        TODO: Running time: O(1) O(1)if we can assume that pythons find method is constant if its
-        not constant time then most likely we can assume its O(N)at the greatest."""
+        TODO: Running time: O(1)if we can assume that the find method runs in its best case
+        and doesnt have to loop through the whole list. O(N)at the greatest."""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
@@ -108,8 +108,8 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        TODO: Running time: O(1) O(1)if we can assume that pythons find method is constant if its
-        not constant time then most likely we can assume its O(N)at the greatest."""
+        TODO: Running time: O(1)if we can assume that the find method runs in its best case
+        and doesnt have to loop through the whole list. O(N)at the greatest."""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, delete entry associated with given key
@@ -118,7 +118,7 @@ class HashTable(object):
         i = self._bucket_index(key)#Index
         found = self.buckets[i].find(lambda item: item[0] == key) #item to look for
         if found:
-            self.buckets[i].delete(found) #Delete found 
+            self.buckets[i].delete(found) #Delete found
         else:
             raise KeyError('Key not found: {}'.format(key))
 
