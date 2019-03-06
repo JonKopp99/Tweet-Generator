@@ -81,11 +81,12 @@ def frequency(word, theWords):
     return ctr
 
 def stripFile():
-    file_object = open("text.txt", "r", encoding="utf-8-sig")
+    file_object = open("corpus.txt", "r", encoding="utf-8-sig")
     #.2 Assigned file read to a variable
     no_punctuation_file = file_object.read()
     #.3 Use regular expresion to remove puntuation
-    no_punctuation_file = re.sub(r'[^\w\s]','',no_punctuation_file)
+    no_punctuation_file = re.sub(r'[^\w\s\d+]',' ',no_punctuation_file)
+    no_punctuation_file = re.sub("\d+", "", no_punctuation_file)
     #.4 Storage an array of words without puntuations
     new_array = no_punctuation_file.split()
     return new_array

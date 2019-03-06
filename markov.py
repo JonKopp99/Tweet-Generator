@@ -13,16 +13,17 @@ def dicto(words):
     return dict
 
 def randWalk(amount, dict):
-    sentence = ""
+    sentence = random.choice(list(dict)).capitalize()
     ctr = 0
     while(ctr < amount):
         dictogram = random.choice(list(dict))
-        sentence += (" " + dictogram)
+        sentence += (" " + dictogram.lower())
         ctr += 1
+    sentence += random.choice([".","!"])
     return sentence
 if __name__ == "__main__":
     words = stripFile()
     dictograms = dicto(words)
     #print(dictograms)
-    sentence = randWalk(15,dictograms)
+    sentence = randWalk(random.randint(10,30),dictograms)
     print(sentence)
