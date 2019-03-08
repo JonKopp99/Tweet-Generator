@@ -30,14 +30,11 @@ def randWalk(amount, dict):
     sentence += random.choice([".","!"])
     return sentence
 
-
-def createSentence():
+if __name__ == "__main__":
     words = stripFile()
     dictograms = dicto(words)
-    sentence = randWalk(10, dictograms)
-    return sentence
-if __name__ == "__main__":
-    print(createSentence())
+    test = randWalk(10, dictograms)
+    print(test)
     #print(dictograms)
     #print(dictograms)
     #sentence = randWalk(random.randint(4,30),dictograms)

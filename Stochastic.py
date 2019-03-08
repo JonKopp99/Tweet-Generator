@@ -15,6 +15,16 @@ def sample(histogram):
         #print(total_prob)
         if(total_prob >= ran_target):
             return tple[0]
+
+def sampleDict(dict):
+    sum = 0
+    #print(dict.values())
+    for d in dict.items():
+        for i in d:
+            print(i.value)
+    print(sum)
+
+
 def testRuns(histogram):
     cumulative_dict = {}
 
